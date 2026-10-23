@@ -1,7 +1,7 @@
 /* Shared look of the public pages (privacy policy and borbworks-studio.github.io), in the game's own palette
    (GameStyles.uss): sky-blue header, cream panels with thick dark-brown outlines, yellow and coral accents,
-   Fredoka headings. Fredoka ships next to this file (SIL OFL 1.1, see OFL.txt), so the pages load nothing
-   from other sites. */
+   Fredoka headings. Always bright, like the game (owner, 2026-10-23: the dark-mode version looked gloomy).
+   Fredoka ships next to this file (SIL OFL 1.1, see OFL.txt), so the pages load nothing from other sites. */
 @font-face {
   font-family: "Fredoka";
   src: url("fredoka.ttf") format("truetype");
@@ -10,6 +10,7 @@
 }
 
 :root {
+  color-scheme: light;
   --outline: #3B2A1A;
   --page: #FFF9EA;
   --panel: #FFF1D5;
@@ -23,18 +24,6 @@
   --sky-low: #CDEBFF;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --page: #1E1712;
-    --panel: #2C2118;
-    --ink: #F6EBD9;
-    --muted: #C9B497;
-    --rule: #4A3A2C;
-    --chip: #4A3A1E;
-    --sky: #2D5875;
-    --sky-low: #1E3A4F;
-  }
-}
 
 * { box-sizing: border-box; }
 
@@ -71,9 +60,6 @@ body {
 
 .band .by { font-size: 0.95em; color: #3B2A1A; opacity: 0.8; }
 
-@media (prefers-color-scheme: dark) {
-  .band .name, .band .by { color: #F6EBD9; }
-}
 
 .wrap { max-width: 760px; margin: 0 auto; }
 
