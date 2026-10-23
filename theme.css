@@ -1,0 +1,143 @@
+/* Shared look of the public pages (privacy policy and borbworks-studio.github.io), in the game's own palette
+   (GameStyles.uss): sky-blue header, cream panels with thick dark-brown outlines, yellow and coral accents,
+   Fredoka headings. Fredoka ships next to this file (SIL OFL 1.1, see OFL.txt), so the pages load nothing
+   from other sites. */
+@font-face {
+  font-family: "Fredoka";
+  src: url("fredoka.ttf") format("truetype");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+:root {
+  --outline: #3B2A1A;
+  --page: #FFF9EA;
+  --panel: #FFF1D5;
+  --ink: #3B2A1A;
+  --muted: #6B5440;
+  --rule: #DEC9A5;
+  --chip: #FFE3A0;
+  --crumb: #FFC93C;
+  --berry: #FF7A59;
+  --sky: #8FD3FF;
+  --sky-low: #CDEBFF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #1E1712;
+    --panel: #2C2118;
+    --ink: #F6EBD9;
+    --muted: #C9B497;
+    --rule: #4A3A2C;
+    --chip: #4A3A1E;
+    --sky: #2D5875;
+    --sky-low: #1E3A4F;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 17px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.band {
+  background: linear-gradient(180deg, var(--sky), var(--sky-low));
+  border-bottom: 4px solid var(--outline);
+  padding: 28px 16px 64px;
+}
+
+.band .wrap { display: flex; align-items: center; gap: 16px; }
+
+.band img {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  border: 4px solid var(--outline);
+  flex: none;
+}
+
+.band .name {
+  font-family: "Fredoka", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.45em;
+  line-height: 1.15;
+  color: #3B2A1A;
+}
+
+.band .by { font-size: 0.95em; color: #3B2A1A; opacity: 0.8; }
+
+@media (prefers-color-scheme: dark) {
+  .band .name, .band .by { color: #F6EBD9; }
+}
+
+.wrap { max-width: 760px; margin: 0 auto; }
+
+main {
+  max-width: 792px; /* 760 of content plus the side padding, so the panel lines up with the header */
+  margin: -40px auto 0;
+  padding: 0 16px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 4px solid var(--outline);
+  border-radius: 24px;
+  box-shadow: 0 6px 0 var(--outline);
+  padding: 28px 24px;
+}
+
+h1, h2, h3 {
+  font-family: "Fredoka", system-ui, sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2em; margin: 0 0 12px; }
+h2 { font-size: 1.35em; margin: 36px 0 10px; padding-bottom: 2px; border-bottom: 4px solid var(--crumb); display: inline-block; }
+h3 { font-size: 1.12em; margin: 26px 0 8px; }
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--berry);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+a:hover, a:focus-visible { color: var(--berry); }
+a:focus-visible { outline: 3px solid var(--crumb); outline-offset: 2px; border-radius: 4px; }
+
+code {
+  background: var(--chip);
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+
+hr { border: 0; border-top: 3px dashed var(--rule); margin: 30px 0; }
+ul { padding-left: 22px; }
+li { margin: 6px 0; }
+li::marker { color: var(--berry); }
+strong { font-weight: 700; }
+
+footer {
+  max-width: 792px;
+  margin: 28px auto 0;
+  padding: 0 16px 48px;
+  color: var(--muted);
+  font-size: 0.95em;
+}
+
+footer p { margin: 4px 0; }
+
+@media (max-width: 480px) {
+  .panel { padding: 22px 18px; border-radius: 20px; }
+  h1 { font-size: 1.7em; }
+}
